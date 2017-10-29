@@ -8,6 +8,26 @@ trait Friendable
 {
     public function add_friend($user_requested_id)
     {
+        if($this->id === $user_requested_id)
+        {
+            return 0;
+        }
+
+        if($this->is_friends_with($user_requested_id) === 1)
+        {
+            return "Already Friends!";
+        }
+
+        if ($this->has_pending_friend_request_sent_to($user_requested_id) === 1)
+        {
+            return "already sent a request!";
+        }
+
+        if($this->has_pending_friend_request_from($user_requested_id) === 1)
+        {
+            return $this->accept_friend($user_requested_id);
+        }
+
         $friendship = Friendship::create([
             'requester' => $this->id,
             'user_requested' => $user_requested_id
@@ -25,6 +45,11 @@ trait Friendable
 
     public function accept_friend($requester)
     {
+        if($this->has_pending_friend_request_from($requester) === 0)
+        {
+            return 0;
+        }
+
         $friendship = Friendship::where('requester', $requester)->where('user_requested', $this->id)->first();
 
         if($friendship)
