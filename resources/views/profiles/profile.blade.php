@@ -16,6 +16,7 @@
                     <p class="text-center">
                         {{ $user->profile->location }}
                     </p>
+                    <br><br>
                     <p class="text-center">
                         @if(Auth::id() == $user->id)
                             <a class="btn btn-lg btn-info" href="{{ route('profile.edit') }}">Edit Profile</a>
@@ -23,6 +24,20 @@
                     </p>
                 </div>
             </div>
+
+            @if(Auth::id() != $user->id)
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p class="text-center">
+                            <strong>Connection Status<strong>
+                        </p>
+                    </div>
+                    <div class="panel-body">
+                        <friend :profile_user_id="{{ $user->id }}"></friend>
+                    </div>
+                </div>
+            @endif
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <p class="text-center">

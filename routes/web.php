@@ -24,9 +24,17 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'ProfileController@index',
         'as' => 'profile',
     ]);
+
+    Route::get('/profile/edit/profile', 'ProfileController@edit')->name('profile.edit');
+
+    Route::post('/profile/update/profile', 'ProfileController@update')->name('profile.update');
+
+    Route::get('/check_relationship_status/{id}', [
+        'uses' => 'FriendshipsController@check',
+        'as' => 'check',
+    ]);
+
+    Route::get('/add_friend/{id}', 'FriendshipsController@add_friend')->name('add_friend');
+
+    Route::get('/accept_friend/{id}', 'FriendshipsController@accept_friend')->name('accept_friend');
 });
-
-Route::get('/profile/edit/profile', 'ProfileController@edit')->name('profile.edit');
-
-Route::post('/profile/update/profile', 'ProfileController@update')->name('profile.update');
-
