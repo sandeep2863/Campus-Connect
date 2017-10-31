@@ -36,12 +36,12 @@
                     .then( (r) => {
                         if(r.body == 1)
                             this.status = 'waiting'
-                            noty({
+                            this.loading = false
+                            new Noty({
                                 type: 'success',
                                 layout: 'bottomLeft',
                                 text: 'Connection request sent!'
-                            })
-                            this.loading = false
+                            }).show()
                 })
             },
             accept_friend() {
@@ -50,12 +50,12 @@
                     .then( (r) => {
                         if(r.body == 1)
                             this.status = 'friends'
-                            noty({
+                            this.loading = false
+                            new Noty({
                                 type: 'success',
                                 layout: 'bottomLeft',
                                 text: 'You are now Connected!'
-                            })
-                            this.loading = false
+                            }).show()
             })
             }
         }

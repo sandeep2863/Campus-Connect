@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/noty.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -81,13 +82,15 @@
         </nav>
 
         @yield('content')
+        <notification :id="'{{ Auth::id() }}'"></notification>
     </div>
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/noty.min.js" type="text/javascript"></script>
     <script>
         @if(Session::has('success'))
-            noty({
+            new Noty({
                 type: 'success',
                 layout: 'bottomLeft',
                 text: '{{ Session::get('success') }}'
