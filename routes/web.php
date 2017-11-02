@@ -43,4 +43,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('/notifications', 'HomeController@notifications')->name('notifications');
+
+    Route::post('/create/post', 'PostsController@store');
 });
