@@ -14,8 +14,13 @@
             listen() {
                 Echo.private('App.User.' + this.id)
                     .notification( (notification) => {
-                        alert('new notification')
-                        console.log(notification)
+                        new Noty({
+                            type: 'success',
+                            layout: 'bottomLeft',
+                            text: notification.name + notification.message
+                        }).show()
+
+                        this.$store.commit('add_not', notification)
                 })
             }
         }
