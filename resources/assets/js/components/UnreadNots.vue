@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    export default () {
+    export default {
         mounted() {
             this.get_unread()
         },
