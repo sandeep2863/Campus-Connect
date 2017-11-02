@@ -8,7 +8,13 @@
                     <div class="panel-heading text-center">Notifications</div>
 
                     <div class="panel-body">
-                        You are logged in!
+                        <ul class="list-group">
+                            @foreach($nots as $not)
+                                <li class="list-group-item">
+                                    {{ $not->data['name'] }} {{ $not->data['message'] }} <span class="pull-right">{{ $not->created_at->diffForHumans() }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
