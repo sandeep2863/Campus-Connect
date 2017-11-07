@@ -74,9 +74,11 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
                                 </ul>
                             </li>
                         @endif
+                        <li><a href="">Forum</a></li>
                     </ul>
                 </div>
             </div>
