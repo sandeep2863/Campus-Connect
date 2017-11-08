@@ -84,7 +84,7 @@
 
         @yield('content')
         @if(Auth::check())
-            <notification :id="'{{ Auth::id() }}'"></notification>
+            <notification :id="{{ Auth::id() }}"></notification>
         @endif
     </div>
 

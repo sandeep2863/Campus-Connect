@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function store(Request $request)
     {
-        Post::create([
+        return Post::create([
             'user_id' => Auth::id(),
             'content' => $request->content
         ]);
