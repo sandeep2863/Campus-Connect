@@ -51,4 +51,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/create/post', 'PostsController@store');
 
     Route::get('/feed', 'FeedsController@feed')->name('feed');
+
+    Route::get('/like', 'LikesController@like');
+
+    Route::get('/unlike', 'LikesController@unlike');
 });
