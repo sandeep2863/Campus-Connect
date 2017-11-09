@@ -60,6 +60,20 @@
                             text: 'You Liked the Post!'
                         }).show()
                     })
+            },
+            unlike() {
+                this.$http.get('/unlike/' + this,id)
+                    .then((response) => {
+                        this.$store.commit('unlike_post', {
+                            post_id: this.id,
+                            like_id: response.body
+                        })
+                        new Noty({
+                            type: 'success',
+                            layout: 'bottomLeft',
+                            text: 'You Unliked the Post!'
+                        }).show()
+                    })
             }
         }
     }
