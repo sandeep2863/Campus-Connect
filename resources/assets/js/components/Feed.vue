@@ -12,6 +12,7 @@
                     </div>
                     <div class="panel-body">
                         <p class="text-center">{{ post.content }}</p>
+                        <like :id="post.id"></like>
                     </div>
                 </div>
             </div>
@@ -20,9 +21,15 @@
 </template>
 
 <script>
+
+    import Like from './Like.vue'
+
     export default {
         mounted() {
             this.get_feed()
+        },
+        components: {
+            Like
         },
         methods: {
             get_feed() {
