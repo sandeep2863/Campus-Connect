@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/feed', 'FeedsController@feed')->name('feed');
 
-    Route::get('/like', 'LikesController@like');
+    Route::get('/like/{id}', 'LikesController@like');
 
-    Route::get('/unlike', 'LikesController@unlike');
+    Route::get('/unlike/{id}', 'LikesController@unlike');
 });
