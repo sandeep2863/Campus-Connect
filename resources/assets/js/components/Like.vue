@@ -6,11 +6,9 @@
         </p>
         <hr>
         <button class="btn btn-xs btn-default">
-            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
             Like
         </button>
         <button class="btn btn-xs btn-default">
-            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
             Dislike
         </button>
 
