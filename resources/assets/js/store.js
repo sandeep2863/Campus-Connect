@@ -7,10 +7,10 @@ export const store = new Vuex.Store({
     state: {
         nots: [],
         posts: [],
-        auth_user: {}
+        auth_user: []
     },
     getters: {
-        all_nots(state) {
+        all_nots(state){
             return state.nots
         },
         all_nots_count(state) {
@@ -30,21 +30,19 @@ export const store = new Vuex.Store({
         auth_user_data(state, user) {
             state.auth_user = user
         },
-        update_post_likes(state, payload)
-        {
-            var post = state.posts.find( (p) => {
+        update_post_likes(state, payload) {
+            var post = state.posts.find((p) => {
                 return p.id === payload.id
             })
 
             post.likes.push(payload.like)
         },
         unlike_post(state, payload) {
-
             var post = state.posts.find((p) => {
                 return p.id === payload.post_id
             })
 
-            var like = post.likes.find( (l) => {
+            var like = post.likes.find((l) => {
                 return l.id === payload.like_id
             })
 

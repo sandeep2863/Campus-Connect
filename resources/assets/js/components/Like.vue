@@ -5,10 +5,10 @@
             <img :src="like.user.avatar" alt="" width="40px" height="40px" class="avatar-like">
         </p>
         <hr>
-        <button class="btn btn-xs btn-default" @click="like()">
+        <button class="btn btn-xs btn-default" v-if="!auth_user_likes_post" @click="like()">
             Like
         </button>
-        <button class="btn btn-xs btn-default" @click="unlike()">
+        <button class="btn btn-xs btn-default" v-else @click="unlike()">
             Dislike
         </button>
 
@@ -33,7 +33,8 @@
                 var check_index = this.likers.indexOf(
                     this.$store.state.auth_user.id
                 )
-                if (check_index === -1)
+
+                if (check_index == -1)
                     return false
                 else
                     return true
@@ -61,7 +62,7 @@
                     })
             },
             unlike() {
-                this.$http.get('/unlike/' + this.id)
+                this.$http.get('/unlike/' + this,id)
                     .then((response) => {
                         this.$store.commit('unlike_post', {
                             post_id: this.id,

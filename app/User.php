@@ -2,7 +2,6 @@
 
 namespace App;
 use App\Traits\Friendable;
-use Cmgmyr\Messenger\Traits\Messagable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Storage;
@@ -11,7 +10,6 @@ class User extends Authenticatable
 {
     use Notifiable;
     use Friendable;
-    use Messagable;
     /**
      * The attributes that are mass assignable.
      *
