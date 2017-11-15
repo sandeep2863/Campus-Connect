@@ -40,8 +40,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/accept_friend/{id}', 'FriendshipsController@accept_friend')->name('accept_friend');
 
-    Route::get('/get_unread', function() {
+    Route::get('get_unread', function() {
         return Auth::user()->unreadNotifications;
+    });
+
+    Route::get('/get_auth_user_data', function() {
+        return Auth::user();
     });
 
     Route::get('/notifications', 'HomeController@notifications')->name('notifications');
@@ -49,4 +53,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/create/post', 'PostsController@store');
 
     Route::get('/feed', 'FeedsController@feed')->name('feed');
+
+    Route::get('/like/{id}', 'LikesController@like');
+
+    Route::get('/unlike/{id}', 'LikesController@unlike');
 });

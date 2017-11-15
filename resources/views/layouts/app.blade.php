@@ -23,6 +23,7 @@
 </head>
 <body>
     <div id="app">
+        <init></init>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -46,8 +47,8 @@
                     <ul class="nav navbar-nav">
                         @if(Auth::check())
                             <li><a href="{{ route('profile', ['slug' => Auth::user()->slug]) }}">My Profile</a> </li>
+                            <unread></unread>
                         @endif
-                        <unread></unread>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -86,7 +87,7 @@
 
         @yield('content')
         @if(Auth::check())
-            <notification :id="'{{ Auth::id() }}'"></notification>
+            <notification :id="{{ Auth::id() }}"></notification>
         @endif
     </div>
 

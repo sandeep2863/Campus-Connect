@@ -29,7 +29,7 @@
         },
         methods: {
             create_post() {
-                this.$http.post('/create/post', { content: this.content})
+                this.$http.post('/create/post', { content: this.content })
                     .then((resp) => {
                         this.content = ''
                         new Noty({
@@ -48,6 +48,6 @@
                 else
                     this.not_working = true
             }
-        }
+        },
     }
 </script>

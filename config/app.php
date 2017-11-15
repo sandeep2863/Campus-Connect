@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Campus Connect',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Cmgmyr\Messenger\MessengerServiceProvider::class,
 
         //
 
