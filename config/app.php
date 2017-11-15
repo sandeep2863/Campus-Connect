@@ -168,6 +168,7 @@ return [
          */
 
         Cmgmyr\Messenger\MessengerServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
 
         /*
          * Application Service Providers...
