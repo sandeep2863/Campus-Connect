@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
 
-        //
+        Cmgmyr\Messenger\MessengerServiceProvider::class,
 
         /*
          * Application Service Providers...
