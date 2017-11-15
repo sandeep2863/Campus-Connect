@@ -22,7 +22,7 @@
         },
         props: ['id'],
         computed: {
-            likes() {
+            likers() {
                 var likers = []
                 this.post.likes.forEach((like) => {
                     likers.push(like.user.id)
@@ -62,7 +62,7 @@
                     })
             },
             unlike() {
-                this.$http.get('/unlike/' + this,id)
+                this.$http.get('/unlike/' + this.id)
                     .then((response) => {
                         this.$store.commit('unlike_post', {
                             post_id: this.id,

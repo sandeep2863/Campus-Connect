@@ -73,6 +73,7 @@
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ route('chatter.home') }}">Forum</a>
                     @endif
                 </div>
             @endif
@@ -83,9 +84,11 @@
                 </div>
 
                 <div class="links">
-                    <a>Connect</a>
-                    <a>Collaborate</a>
-                    <a>Cult</a>
+                    <strong>
+                        <a>Connect</a>
+                        <a>Collaborate</a>
+                        <a>Cult</a>
+                    </strong>
                 </div>
             </div>
         </div>
