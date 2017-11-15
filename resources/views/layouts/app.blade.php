@@ -13,10 +13,10 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/noty.css" rel="stylesheet">
-
+@yield('css')
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
+        window.Laravel =<?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
@@ -75,9 +75,11 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
                                 </ul>
                             </li>
                         @endif
+                        <li><a href="{{route('chatter.home')}}">Forum</a></li>
                     </ul>
                 </div>
             </div>
@@ -90,8 +92,10 @@
     </div>
 
     <!-- Scripts -->
+
     <script src="/js/app.js"></script>
     <script src="/js/noty.min.js" type="text/javascript"></script>
+    @yield('js')
     <script>
         @if(Session::has('success'))
             new Noty({
